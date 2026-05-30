@@ -8,6 +8,9 @@ import { Menu } from "@/components/Menu";
 import { Experience } from "@/components/Experience";
 import { Visit } from "@/components/Visit";
 import { Footer } from "@/components/Footer";
+import { CursorBubble } from "@/components/CursorBubble";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { WaveDivider } from "@/components/WaveDivider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,11 +36,19 @@ function Index() {
   return (
     <main className="relative bg-background">
       <SmoothScroll />
+      <ScrollProgress />
+      <CursorBubble />
       <Nav />
       <Hero />
       <About />
       <MarqueeBand />
+      <div className="relative -mb-px bg-sand">
+        <WaveDivider fill="var(--color-deep)" />
+      </div>
       <Menu />
+      <div className="relative -mt-px bg-deep">
+        <WaveDivider fill="var(--color-background)" />
+      </div>
       <Experience />
       <Visit />
       <Footer />
