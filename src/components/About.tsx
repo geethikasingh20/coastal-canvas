@@ -3,6 +3,8 @@ import { useRef } from "react";
 import interior from "@/assets/interior.jpg";
 import wave from "@/assets/wave.jpg";
 import { Reveal, RevealText } from "./Reveal";
+import { CountUp } from "./CountUp";
+import { Bubbles } from "./Bubbles";
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -12,7 +14,8 @@ export function About() {
 
   return (
     <section ref={ref} id="about" className="relative overflow-hidden bg-background py-32 md:py-48">
-      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-6 px-6">
+      <Bubbles count={10} tone="dark" className="opacity-50" />
+      <div className="relative mx-auto grid max-w-7xl grid-cols-12 gap-6 px-6">
         <div className="col-span-12 md:col-span-5">
           <Reveal>
             <p className="mb-6 text-xs uppercase tracking-[0.4em] text-muted-foreground">
@@ -39,17 +42,29 @@ export function About() {
           </Reveal>
 
           <Reveal delay={2}>
-            <div className="mt-12 flex gap-10">
+            <div className="mt-12 flex flex-wrap gap-10">
               <div>
-                <div className="font-display text-4xl text-coral">11</div>
+                <div className="font-display text-4xl text-coral">
+                  <CountUp to={11} />
+                </div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
                   Years on the shore
                 </div>
               </div>
               <div>
-                <div className="font-display text-4xl text-coral">36</div>
+                <div className="font-display text-4xl text-coral">
+                  <CountUp to={36} />
+                </div>
                 <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
                   Seats by the water
+                </div>
+              </div>
+              <div>
+                <div className="font-display text-4xl text-coral">
+                  <CountUp to={4} suffix="am" />
+                </div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+                  Daily catch arrives
                 </div>
               </div>
             </div>

@@ -144,3 +144,40 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
+
+/* Custom cursor */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  a, button, input, textarea, [data-cursor] { cursor: none; }
+}
+.cursor-ring {
+  transition: width 0.25s ease, height 0.25s ease,
+    background-color 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+}
+.cursor-ring--active {
+  width: 64px;
+  height: 64px;
+  background-color: color-mix(in oklab, var(--color-coral) 20%, transparent);
+  border-color: var(--color-coral);
+}
+
+/* Story link underline */
+.story-link {
+  position: relative;
+  display: inline-block;
+}
+.story-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  height: 1px; width: 100%;
+  background: currentColor;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.story-link:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
